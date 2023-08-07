@@ -19,7 +19,7 @@ function SidebarMenu() {
   // Vista
   return (
     <div id="SiderbarMenu" className={`offset h-screen w-96 absolute ${show ? 'right-0' : '-right-96'} top-0`}>
-      <button><i onClick={toggle} class="bi bi-x text-5xl text-white absolute -left-12"></i></button>
+      <button><i onClick={toggle} id="SidebarMenu-icon" className={`bi bi-${show ? 'x' : 'list'} text-5xl text-white absolute -left-12`}></i></button>
     
     
     

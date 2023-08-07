@@ -4,6 +4,8 @@
 #navBar-header {
   background-color: $colorOscuro;
   color: $colorBlanco;
+  min-height: 6rem;
+  transition: all 0.5s;
 }
 
 #navBar-tittle {
