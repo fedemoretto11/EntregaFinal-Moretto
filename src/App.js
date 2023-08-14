@@ -1,16 +1,21 @@
+import { BrowserRouter } from "react-router-dom";
 import ItemListContainer from "./components/ItemListContainer";
 import NavBar from "./components/NavBar";
+import Main from "./components/Main";
 
 
 // import SidebarMenu from "./components/SidebarMenu";
 
 function App() {
+
+
+
+  
   return (
-    <>
+    <BrowserRouter>
       <NavBar />
-      <ItemListContainer nombre="Federico" mensajeCompleto="Buenas tardes, esto es por si habia que mostrar el mensaje completo"/>
-      {/* <SidebarMenu /> */}
-    </>
+      <Main />
+    </BrowserRouter>
   );
 }
 

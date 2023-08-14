@@ -1,40 +1,78 @@
 import CartWidget from './CartWidget'
 import '../styles/NavBar.scss'
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
+
 
 
 function NavBar() {
   // Estados
-  const [show,setShow] = useState(false);
+  const [showMenu,setshowMenu] = useState(false);
+
+
+  const categories = [
+    {
+      name: 'Guitarras',
+      categoryId: 'MLA417638',
+      subcategories: []
+    },
+    {
+      name: 'Pianos',
+      categoryId: 'MLA2100',
+      subcategories: []
+    },
+    {
+      name: 'Baterias',
+      categoryId: 'MLA416667',
+      subcategories: []
+    },
+    {
+      name: 'Accesorios',
+      categoryId: 'MLA434786',
+      subcategories: []
+    },
+  ];
+
 
   
   // Accion
-  const toggleResponsiveNavbar = () => {
-    setShow(!show);
-  }
 
 
 
   // Vista
   return (
-    <header id="navBar-header" className='gap-2 flex flex-col md:flex-row justify-center md:justify-between items-center px-6 md:px-24 py-2 md:gap-3 lg:gap-6'>
-      <div className={`flex justify-between items-center w-full ${show ? 'mt-5' : 'mt-0'}`}>
-        <h1 id="navBar-tittle" className={`text-2xl lg:text-3xl`}>
-          Super Music Changuito
-        </h1>
-        <i onClick={toggleResponsiveNavbar} className='block md:hidden bi bi-list text-4xl'></i>
+    <nav id="navBar__header" className='gap-2 flex flex-col md:flex-row justify-center md:justify-between items-center px-6 md:px-6 lg:px-24 py-2 md:gap-3 lg:gap-6'>
+      <div className={`flex justify-between items-center w-full ${showMenu ? 'mt-5 md:mt-0' : 'mt-0'} `}>
+        <Link to='/'>
+          <h1 id="navBar__tittle" className={`text-2xl md:text-xl lg:text-3xl`}>Super Music Changuito</h1>
+        </Link>
+        <i onClick={() => {setshowMenu(!showMenu)}} className='cursor-pointer	 block md:hidden material-icons text-4xl'>{`${showMenu ? 'close' : 'menu'}`}</i>
       </div>
-      <nav id="navBar-nav" className={`${show ? 'flex' : 'hidden'} flex-col justify-center align-center text-center gap-5 
-      md:flex md:flex-row h-auto w-auto my-5
-      `}>
-        <a href="" className='navBar-link px-2 text-xl md:text-lg lg:text-xl'>Guitarras</a>
-        <a href="" className='navBar-link px-2 text-xl md:text-lg lg:text-xl'>Pianos</a>
-        <a href="" className='navBar-link px-2 text-xl md:text-lg lg:text-xl'>Baterias</a>
-        <a href="" className='navBar-link px-2 text-xl md:text-lg lg:text-xl'>Accesorios</a>
-        <CartWidget />  
-      </nav>
-    </header>
+      <div id="navBar__nav" className={`${showMenu ? 'flex' : 'hidden'} flex-col justify-center align-center text-center gap-5 md:flex md:flex-row h-auto w-auto my-5`}>
+        <ul className={`${showMenu ? 'flex' : 'hidden'} flex-col justify-center align-center text-center gap-5 md:flex md:flex-row h-auto w-auto my-5`}>
+          <Link to={`/cat/MLA417638`} id='navBar__link' className='px-2 text-center text-xl md:text-lg lg:text-xl flex flex-col gap-1 justify-center items-center'>Guitarras</Link>
+          <Link to={`/cat/MLA2100`} id='navBar__link' className='px-2 text-center text-xl md:text-lg lg:text-xl flex flex-col gap-1 justify-center items-center'>Pianos</Link>
+          <Link to={`/cat/MLA416667`} id='navBar__link' className='px-2 text-center text-xl md:text-lg lg:text-xl flex flex-col gap-1 justify-center items-center'>Baterias</Link>
+          <Link to={`/cat/MLA434786`} id='navBar__link' className='px-2 text-center text-xl md:text-lg lg:text-xl flex flex-col gap-1 justify-center items-center'>Accesorios</Link>
+          <CartWidget /> 
+        </ul>
+      </div>
+    </nav>
   )
 }
 
 export default NavBar
+
+
+          {/* {
+          categories.map((category) => (
+            <li key={category.name} data-category={category.categoryId} id='navBar__link' className='px-2 text-center text-xl md:text-lg lg:text-xl flex flex-col gap-1 justify-center items-center'
+            >
+              <Link to={`/cat/${category.categoryId}`} className='flex gap-1'>
+                {category.name}
+              </Link>
+              
+              
+            </li>
+          ))
+          } */}

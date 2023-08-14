@@ -1,13 +1,22 @@
 @import 'variables';
 
 
-#navBar-header {
-  background-color: $colorOscuro;
-  color: $colorBlanco;
-  min-height: 6rem;
-  transition: all 0.5s;
+#navBar {
+  &__header{
+    background-color: $colorOscuro;
+    color: $colorBlanco;
+    min-height: 6rem;
+    transition: all 0.5s;
+  }
+  &__tittle {
+    font-family: $fuentePrimario;
+  }
+  &__link {
+    &:hover {
+      color: $colorAcento;
+    }
+  }
+  
 }
 
-#navBar-tittle {
-  font-family: $fuentePrimario;
-}
+

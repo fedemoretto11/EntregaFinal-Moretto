@@ -1,0 +1,14 @@
+@import 'variables';
+
+
+.card {
+  &__btn {
+    border: 1px solid $colorOscuro;
+    &:hover {
+      color: $colorBlanco;
+      background-color: $colorOscuro;
+      border: 1px solid $colorTerciario;
+      
+    }
+  }
+}
