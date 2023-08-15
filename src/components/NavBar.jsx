@@ -49,13 +49,11 @@ function NavBar() {
         <i onClick={() => {setshowMenu(!showMenu)}} className='cursor-pointer	 block md:hidden material-icons text-4xl'>{`${showMenu ? 'close' : 'menu'}`}</i>
       </div>
       <div id="navBar__nav" className={`${showMenu ? 'flex' : 'hidden'} flex-col justify-center align-center text-center gap-5 md:flex md:flex-row h-auto w-auto my-5`}>
-        <ul className={`${showMenu ? 'flex' : 'hidden'} flex-col justify-center align-center text-center gap-5 md:flex md:flex-row h-auto w-auto my-5`}>
-          <Link to={`/cat/MLA417638`} id='navBar__link' className='px-2 text-center text-xl md:text-lg lg:text-xl flex flex-col gap-1 justify-center items-center'>Guitarras</Link>
-          <Link to={`/cat/MLA2100`} id='navBar__link' className='px-2 text-center text-xl md:text-lg lg:text-xl flex flex-col gap-1 justify-center items-center'>Pianos</Link>
-          <Link to={`/cat/MLA416667`} id='navBar__link' className='px-2 text-center text-xl md:text-lg lg:text-xl flex flex-col gap-1 justify-center items-center'>Baterias</Link>
-          <Link to={`/cat/MLA434786`} id='navBar__link' className='px-2 text-center text-xl md:text-lg lg:text-xl flex flex-col gap-1 justify-center items-center'>Accesorios</Link>
-          <CartWidget /> 
-        </ul>
+        <Link to={`/cat/electronics`} id='navBar__link' className='px-2 text-center text-xl md:text-lg lg:text-xl flex flex-col gap-1 justify-center items-center'>Electronico</Link>
+        <Link to={`/cat/jewelery`} id='navBar__link' className='px-2 text-center text-xl md:text-lg lg:text-xl flex flex-col gap-1 justify-center items-center'>Joyas</Link>
+        <Link to={`/cat/men's clothing`} id='navBar__link' className='px-2 text-center text-xl md:text-lg lg:text-xl flex flex-col gap-1 justify-center items-center'>Hombre</Link>
+        <Link to={`/cat/women's clothing`} id='navBar__link' className='px-2 text-center text-xl md:text-lg lg:text-xl flex flex-col gap-1 justify-center items-center'>Mujer</Link>
+        <Link to={`/carrito`} id='navBar__link'><CartWidget /></Link>
       </div>
     </nav>
   )
@@ -64,15 +62,10 @@ function NavBar() {
 export default NavBar
 
 
-          {/* {
-          categories.map((category) => (
-            <li key={category.name} data-category={category.categoryId} id='navBar__link' className='px-2 text-center text-xl md:text-lg lg:text-xl flex flex-col gap-1 justify-center items-center'
-            >
-              <Link to={`/cat/${category.categoryId}`} className='flex gap-1'>
-                {category.name}
-              </Link>
-              
-              
-            </li>
-          ))
-          } */}
+
+
+  // <Link to={`/cat/MLA417638`} id='navBar__link' className='px-2 text-center text-xl md:text-lg lg:text-xl flex flex-col gap-1 justify-center items-center'>Guitarras</Link>
+  // <Link to={`/cat/MLA2100`} id='navBar__link' className='px-2 text-center text-xl md:text-lg lg:text-xl flex flex-col gap-1 justify-center items-center'>Pianos</Link>
+  // <Link to={`/cat/MLA416667`} id='navBar__link' className='px-2 text-center text-xl md:text-lg lg:text-xl flex flex-col gap-1 justify-center items-center'>Baterias</Link>
+  // <Link to={`/cat/MLA434786`} id='navBar__link' className='px-2 text-center text-xl md:text-lg lg:text-xl flex flex-col gap-1 justify-center items-center'>Accesorios</Link>
+        

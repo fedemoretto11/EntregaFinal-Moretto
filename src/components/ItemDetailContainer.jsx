@@ -1,15 +1,16 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
 import ItemDetail from './ItemDetail';
 
-function ItemDetailContainer({listaProductos, producto, onSetProducto}) {
-
+function ItemDetailContainer() {
+  const [product, setProduct] = useState({});
   const paramProduct = useParams();
 
-  useEffect(() => {
-    onSetProducto(listaProductos.find((prod) => prod.id == paramProduct.id));
 
-  },[])
+  
+  useEffect(() => {
+    
+  },[]);
 
 
 
@@ -18,7 +19,7 @@ function ItemDetailContainer({listaProductos, producto, onSetProducto}) {
 
 
   return (
-    <ItemDetail producto={producto}/>
+    <ItemDetail/>
   )
 }
 
