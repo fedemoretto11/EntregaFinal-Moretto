@@ -40,10 +40,8 @@ function ItemListContainer() {
     fetchSimulado()
       .then(resultado => {        
         if (params.id) {
-          console.log("Estoy en la ruta de categorias " + params.id);
           setProductos(resultado.filter((pro) => pro.category == params.id));
         } else {
-          console.log("Estoy en la ruta de productos,osea Home")
           setProductos(resultado)
         }
       })

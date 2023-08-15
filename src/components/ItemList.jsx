@@ -1,5 +1,5 @@
 import React from 'react'
-import '../styles/ItemList.scss'
+import '../styles/Item.scss'
 import { Link } from 'react-router-dom'
 
 function ItemList({productos}) {
