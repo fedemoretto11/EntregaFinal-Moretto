@@ -19,7 +19,7 @@ if(producto) {
         <div className='cardDetail__btns md:w-2/4 lg:w-1/4 flex flex-col justify-center gap-6 rounded-md p-2'>
           <div className='cardDetail__btns__cantidad flex flex-col md:flex-row justify-between items-center '>
             <label htmlFor="cardDetail__btns__cantidad__label" className='text-sm md:text-md'>Cantidad</label>
-            <select className='cardDetail__btns__cantidad__select w-8 text-center' name="cardDetail__btns__cantidad" id="cardDetail__btns__cantidad">
+            <select className='cardDetail__btns__cantidad__select w-12 text-center' name="cardDetail__btns__cantidad" id="cardDetail__btns__cantidad">
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>

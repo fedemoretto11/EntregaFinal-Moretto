@@ -11,12 +11,16 @@
   &__tittle {
     font-family: $fuentePrimario;
   }
+
+  
+}
+
+.navBar{
   &__link {
     &:hover {
       color: $colorAcento;
     }
   }
-  
 }
 
 

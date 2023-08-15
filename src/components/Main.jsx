@@ -11,7 +11,7 @@ function Main() {
 
 
   return (
-    <main>
+    <main className='min-h-screen'>
       <Routes>
         <Route path='/' element={<ItemListContainer />}></Route>
         <Route path='/cat/:id' element={<ItemListContainer/>}></Route>
