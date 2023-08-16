@@ -1,5 +1,5 @@
-import CartWidget from './CartWidget'
-import '../styles/NavBar.scss'
+import CartWidget from '../CartWidget'
+import '../../styles/style.scss'
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -8,35 +8,8 @@ import { Link } from 'react-router-dom';
 function NavBar() {
   // Estados
   const [showMenu,setshowMenu] = useState(false);
-
-
-  const categories = [
-    {
-      name: 'Guitarras',
-      categoryId: 'MLA417638',
-      subcategories: []
-    },
-    {
-      name: 'Pianos',
-      categoryId: 'MLA2100',
-      subcategories: []
-    },
-    {
-      name: 'Baterias',
-      categoryId: 'MLA416667',
-      subcategories: []
-    },
-    {
-      name: 'Accesorios',
-      categoryId: 'MLA434786',
-      subcategories: []
-    },
-  ];
-
-
   
   // Accion
-
 
 
   // Vista
@@ -60,12 +33,3 @@ function NavBar() {
 }
 
 export default NavBar
-
-
-
-
-  // <Link to={`/cat/MLA417638`} id='navBar__link' className='px-2 text-center text-xl md:text-lg lg:text-xl flex flex-col gap-1 justify-center items-center'>Guitarras</Link>
-  // <Link to={`/cat/MLA2100`} id='navBar__link' className='px-2 text-center text-xl md:text-lg lg:text-xl flex flex-col gap-1 justify-center items-center'>Pianos</Link>
-  // <Link to={`/cat/MLA416667`} id='navBar__link' className='px-2 text-center text-xl md:text-lg lg:text-xl flex flex-col gap-1 justify-center items-center'>Baterias</Link>
-  // <Link to={`/cat/MLA434786`} id='navBar__link' className='px-2 text-center text-xl md:text-lg lg:text-xl flex flex-col gap-1 justify-center items-center'>Accesorios</Link>
-        

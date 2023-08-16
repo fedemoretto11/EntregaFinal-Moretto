@@ -1,5 +1,79 @@
 @import 'variables';
 
+
+.card {
+  &__btn {
+    border: 1px solid $colorOscuro;
+    &:hover {
+      color: $colorBlanco;
+      background-color: $colorOscuro;
+      border: 1px solid $colorTerciario;
+      
+    }
+  }
+}
+
+
+.cardDetail {
+  font-family: $fuentePrimario;
+  &__btns {
+      border: solid 2px $colorOscuro;
+    &__agregarCarrito {
+      background-color: $colorPrimario;
+      color: $colorBlanco;
+      padding: 4px 8px;
+      &:hover {
+        background-color: $colorOscuro;
+        color: $colorAcento;
+      }
+    }
+    &__volver{
+      width: 45%;
+      color: $colorOscuro;
+      background-color: $colorSecundario;
+      align-self: flex-end;
+      &:hover {
+        background-color: $colorOscuro;
+        color: $colorAcento;
+      }
+    }
+  }
+}
+
+#navBar {
+  &__header{
+    background-color: $colorOscuro;
+    color: $colorBlanco;
+    min-height: 6rem;
+    transition: all 0.5s;
+  }
+  &__tittle {
+    font-family: $fuentePrimario;
+  }
+
+  
+}
+
+.navBar{
+  &__link {
+    &:hover {
+      color: $colorAcento;
+    }
+  }
+}
+
+
+#SiderbarMenu {
+  background-color: $colorOscuro;
+  transition: .8s ease-in-out;
+}
+
+#SidebarMenu-icon {
+  padding: 2px;
+  background-color: $colorFuerte;
+  border-radius: 15px 5px 5px 15px;
+}
+
 .footer {
   background-color: $colorOscuro;
   color: $colorBlanco;

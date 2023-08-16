@@ -1,12 +1,14 @@
-import React from 'react'
-import '../styles/Item.scss'
+import '../../styles/style.scss'
+import { Link } from 'react-router-dom'
+
+
 function ItemDetail({producto}) {
 
 
 if(producto) {
   return (
     <section className='flex justify-center items-center pt-4'>
-      <article key={producto.id} className='cardDetail h-[30rem] w-3/4 shadow-md p-4 rounded-md duration-300 transition flex flex-col md:flex-row bg-white hover:bg-slate-50'>
+      <article key={producto.id} className='cardDetail h-[30rem] w-3/4 shadow-md p-4 rounded-md duration-300 transition flex flex-col md:flex-row bg-white'>
         <div className='cardDetail__img h-1/4 md:h-full md:w-1/4'>
           <img src={producto.image} alt={producto.title} className='cardDetail__image h-full w-full object-scale-down' />
         </div>
@@ -29,6 +31,12 @@ if(producto) {
             <p className='text-gray-400 text-xs'>{`Stock: 10`}</p>
           </div>
           <button className='cardDetail__btns__agregarCarrito rounded-md'>Agregar al Carrito</button>
+          <button className='cardDetail__btns__volver rounded-md'>
+            <Link 
+              to={`/cat/${producto.category}`}
+            >Volver</Link>
+          </button>
+
         </div>
       </article>
     </section>
