@@ -89,3 +89,35 @@
   }
 }
 
+
+
+.loader {
+  &__spinner {
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    border: 10px solid $colorOscuro;
+    border-left-color: $colorAcento;
+    animation: spin 1000ms ease infinite;
+  }
+  &__text {
+    font-family: $fuentePrimario;
+    color: $colorOscuro;
+  }
+  
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+.text-error {
+  font-family: $fuentePrimario;
+  color: $colorOscuro;
+}
