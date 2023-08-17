@@ -4,7 +4,7 @@ Este repositorio contiene el proyecto final del curso de React JS, que consiste 
 
 <!-- ## Demo
 
-
+![](https://github.com/fedemoretto11/PreEntrega2-Moretto/blob/develop/Gif%20Site.gif)
 
 Puedes probar el carrito de compras en acción visitando el siguiente enlace: [Carrito de Compras](https://fedemoretto11.github.io/SuperMusicChanguito/) -->
 
