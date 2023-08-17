@@ -27,7 +27,7 @@ function ItemListContainer() {
     fetchSimulado()
       .then(resultado => {        
         if (params.id) {
-          setProductos(resultado.filter((pro) => pro.category == params.id));
+          setProductos(resultado.filter((pro) => pro.category === params.id));
         } else {
           setProductos(resultado)
         }

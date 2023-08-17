@@ -4,13 +4,12 @@ import Main from "./components/Routes/Main";
 import Footer from "./components/Routes/Footer";
 
 
+
 // import SidebarMenu from "./components/SidebarMenu";
 
 function App() {
 
 
-
-  
   return (
     <BrowserRouter>
       <NavBar />

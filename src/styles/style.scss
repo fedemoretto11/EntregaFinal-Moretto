@@ -1,37 +1,37 @@
 @import 'variables';
 
 
+#main {
+  background-color: $colorNeutral;
+}
+
 .card {
-  &__btn {
-    border: 1px solid $colorOscuro;
-    &:hover {
-      color: $colorBlanco;
-      background-color: $colorOscuro;
-      border: 1px solid $colorTerciario;
-      
-    }
+  &:hover &__image{
+    transform: scale(1.1)
   }
 }
 
 
 .cardDetail {
   font-family: $fuentePrimario;
+  background-color: $colorBlanco;
   &__btns {
       border: solid 2px $colorOscuro;
     &__agregarCarrito {
       background-color: $colorPrimario;
       color: $colorBlanco;
       padding: 4px 8px;
+      transition-duration: 200ms;
       &:hover {
         background-color: $colorOscuro;
         color: $colorAcento;
       }
     }
     &__volver{
-      width: 45%;
       color: $colorOscuro;
       background-color: $colorSecundario;
       align-self: flex-end;
+      transition-duration: 200ms;
       &:hover {
         background-color: $colorOscuro;
         color: $colorAcento;
@@ -56,6 +56,7 @@
 
 .navBar{
   &__link {
+    transition-duration: 200ms;
     &:hover {
       color: $colorAcento;
     }
@@ -78,3 +79,13 @@
   background-color: $colorOscuro;
   color: $colorBlanco;
 }
+
+
+.star {
+  color: $colorOscuro;
+  &__fill {
+    color: gold;
+    border-color: $colorOscuro;
+  }
+}
+
