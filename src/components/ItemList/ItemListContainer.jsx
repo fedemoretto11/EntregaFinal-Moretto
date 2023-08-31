@@ -3,13 +3,13 @@ import { useEffect, useState } from 'react'
 import ItemList from './ItemList';
 import { useParams } from 'react-router-dom';
 import { db } from "../database/Data"
-import { getDocs , collection } from "firebase/firestore"
+import { getDocs , collection, addDoc } from "firebase/firestore"
 
 
 
 function ItemListContainer() {
 
-  const [productos, setProductos] = useState([]);
+  const [products, setProducts] = useState([]);
   const params = useParams();
 
 
@@ -18,15 +18,19 @@ function ItemListContainer() {
     const listProducts = getDocs(collectionProducts);
     listProducts
       .then((result) => {
-        const resultados = result.docs.map((res) => {
-          return {id: res.id, ...res.data()}
+        const productsToMap = result.docs.map((product) => {
+          return {id: product.id, ...product.data()}
         })
         if(params.id) {
-          setProductos(resultados.filter((pro) => pro.category === params.id))
+          setProducts(productsToMap.filter((product) => product.category === params.id))
         } else {
-          setProductos(resultados)
+          setProducts(productsToMap)
         }
       })
+
+
+
+
   },[params.id])
   
 
@@ -34,7 +38,7 @@ function ItemListContainer() {
   return (
     <>
       <ItemList 
-        productos={productos}
+        products={products}
       />
     </>
   )

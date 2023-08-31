@@ -3,7 +3,13 @@
 
 #main {
   background-color: $colorNeutral;
+  min-height: calc(100vh - 14rem);
 }
+
+.loaderContainer {
+  min-height: calc(100vh - 14rem);
+}
+
 
 .card {
   &:hover &__image{

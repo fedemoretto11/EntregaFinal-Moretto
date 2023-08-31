@@ -23,10 +23,10 @@ function NavBar() {
         <i onClick={() => {setshowMenu(!showMenu)}} className='cursor-pointer	 block md:hidden material-icons text-4xl'>{`${showMenu ? 'close' : 'menu'}`}</i>
       </div>
       <div id="navBar__nav" className={`${showMenu ? 'flex' : 'hidden'} navBar__nav flex-col justify-center align-center text-center gap-5 md:flex md:flex-row h-auto w-auto my-5`}>
-        <Link to={`/category/electronics`} className='navBar__link px-2 text-center text-xl md:text-lg lg:text-xl flex flex-col gap-1 justify-center items-center'>Electronico</Link>
-        <Link to={`/category/jewelery`} className='navBar__link px-2 text-center text-xl md:text-lg lg:text-xl flex flex-col gap-1 justify-center items-center'>Joyas</Link>
-        <Link to={`/category/men-clothing`} className='navBar__link px-2 text-center text-xl md:text-lg lg:text-xl flex flex-col gap-1 justify-center items-center'>Hombre</Link>
-        <Link to={`/category/women-clothing`} className='navBar__link px-2 text-center text-xl md:text-lg lg:text-xl flex flex-col gap-1 justify-center items-center'>Mujer</Link>
+        <Link to={`/category/guitarras`} className='navBar__link px-2 text-center text-xl md:text-lg lg:text-xl flex flex-col gap-1 justify-center items-center'>Guitarras</Link>
+        <Link to={`/category/baterias`} className='navBar__link px-2 text-center text-xl md:text-lg lg:text-xl flex flex-col gap-1 justify-center items-center'>Baterias</Link>
+        <Link to={`/category/pianos`} className='navBar__link px-2 text-center text-xl md:text-lg lg:text-xl flex flex-col gap-1 justify-center items-center'>Pianos</Link>
+        <Link to={`/category/accesorios`} className='navBar__link px-2 text-center text-xl md:text-lg lg:text-xl flex flex-col gap-1 justify-center items-center'>Accesorios</Link>
         <Link to={`/cart`} className='navBar__link'><CartWidget /></Link>
       </div>
     </nav>

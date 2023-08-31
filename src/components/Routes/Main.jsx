@@ -10,7 +10,7 @@ function Main() {
 
 
   return (
-    <main id='main' className='min-h-screen'>
+    <main id='main'>
       <Routes>
         <Route path='/' element={<ItemListContainer />}></Route>
         <Route path='/category/:id' element={<ItemListContainer/>}></Route>
