@@ -121,3 +121,54 @@
   font-family: $fuentePrimario;
   color: $colorOscuro;
 }
+
+
+
+.cart-resume {
+  background-color: $colorBlanco;
+  border-radius: 10px;
+  &__btn-comprar {
+    color: $colorBlanco;
+    background-color: $colorTerciario;
+    border-radius: 5px;
+    transition: 300ms;
+    &:hover {
+      color: $colorAcento;
+      background-color: $colorOscuro;
+    }
+  }
+  &__btn-verProductos {
+    color: $colorBlanco;
+    background-color: $colorGris;
+    border-radius: 5px;
+    transition: 300ms;
+    &:hover {
+      background-color: $colorPrimario;
+    }
+  }
+}
+
+.cart-list {
+  background-color: $colorBlanco;
+  border-radius: 10px;
+}
+
+.cart-item-detail {
+  border-bottom: 2px solid $colorNeutral;
+
+}
+
+.cart-counter {
+  border: 1px solid $colorSecundario;
+font-size: 1.25rem;
+  &__rest {
+    color: $colorSecundario;
+  }
+  &__sum {
+    color: $colorFuerte;
+  }
+  &__total {
+    color: $colorOscuro;
+  }
+
+}

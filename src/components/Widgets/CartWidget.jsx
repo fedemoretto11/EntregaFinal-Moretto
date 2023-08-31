@@ -1,8 +1,9 @@
-// import { useState } from 'react'
+import { useContext } from "react"
+import { contexto } from "../Context/ContextComponent"
 
 function CartWidget() {
+  const items = useContext(contexto)
   // Estados
-  // const [show,setShow] = useState(false);
 
 
   // Accion
@@ -15,8 +16,7 @@ function CartWidget() {
   return (
     <div className="flex cart-widget h-full  justify-center items-center">
       <i onClick={toggleCart} className="bi bi-cart text-3xl"></i>
-      <span className="text-center cart-count rounded-full bg-red-600 text-sm absolute w-5 h-5 translate-x-4 -translate-y-3 md:translate-x-4 md:-translate-y-2">1</span>
-      
+      <span className={`${items.items ? "absolute" : "hidden"} text-center cart-count rounded-full bg-red-600 text-sm absolute w-5 h-5 translate-x-4 -translate-y-3 md:translate-x-4 md:-translate-y-3`}>{items.items < 100 ? items.items : "+99"}</span>
     </div>
   )
 
