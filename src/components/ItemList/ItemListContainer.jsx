@@ -18,17 +18,15 @@ function ItemListContainer() {
     const listProducts = getDocs(collectionProducts);
     listProducts
       .then((result) => {
-        const productsToMap = result.docs.map((product) => {
+        const productsMapped = result.docs.map((product) => {
           return {id: product.id, ...product.data()}
         })
         if(params.id) {
-          setProducts(productsToMap.filter((product) => product.category === params.id))
+          setProducts(productsMapped.filter((product) => product.category === params.id))
         } else {
-          setProducts(productsToMap)
+          setProducts(productsMapped)
         }
       })
-
-
 
 
   },[params.id])
