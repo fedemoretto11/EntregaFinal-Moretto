@@ -5,7 +5,7 @@ import CartItem from "./CartItem";
 function CartList() {
 
   const items = useContext(contexto);
-  console.log(items.products)
+  console.table(items.products)
 
 
   return (

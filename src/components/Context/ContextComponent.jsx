@@ -6,26 +6,36 @@ const Provider = contexto.Provider
 
 function ContextComponent(props) {
 
-  const cartLocalStorage = localStorage.getItem("cart")
+  // const cartLocalStorage = localStorage.getItem("cart")
 
-  const [counter, setCounter] = useState(0);
+  // const [counter, setCounter] = useState(0);
+  // const [subtotal, setSubtotal] = useState(0)
   const [products, setProducts] = useState([])
   const [items, setItems] = useState(0)
-  const [subtotal, setSubtotal] = useState(0)
+
+  const productsFilter = (newProduct) => {
+    return products.find(product => product.id == newProduct.id) ? true : false
+  }
+
+  const addProduct = (newProduct) => {
+    if(!productsFilter(newProduct)) {
+      setProducts([...products, newProduct])
+      setItems(items + 1)
+      console.log("Producto agregado")
+    } else {
+      console.log("El producto se encuentra en el carrito")
+    }
+  }
 
 
 
   const contextObject = {
-    products: [],
-    items : 0,
+    products: products,
+    items : items,
     subtotal: 0,
-    unaFuncion: () => {
-      console.log("hola")
-    }
-  }
-
-  const findProduct = () => {
-
+    onAddProduct: (newProduct) => {
+      addProduct(newProduct)
+    },
   }
 
 
@@ -34,7 +44,7 @@ function ContextComponent(props) {
 
   return (
     <Provider 
-      value={contextObject}
+      value={ contextObject }
     >
       {props.children}
     </Provider>

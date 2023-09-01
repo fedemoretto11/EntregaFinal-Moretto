@@ -1,9 +1,9 @@
-import CartCounter from "../utils/CartCounter"
+import CartCounter from "../smallComponents/CartCounter"
 
 
 function CartItem({product}) {
 
-  console.log(product)
+
 
   return (
     <article className="cart-item-detail p-4 h-28 w-full flex items-center justify-around gap-4"> 
