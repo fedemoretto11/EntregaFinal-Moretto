@@ -179,3 +179,63 @@ font-size: 1.25rem;
   }
 
 }
+
+
+.checkout {
+  background-color: $colorSecundario;
+  border-radius: 10px;
+  box-shadow: 0 0 1px 0px $colorOscuro;
+  transition: 200ms;
+  &__titulo {
+    font-family: $fuentePrimario;
+    color: $colorOscuro;
+  }
+  &__form {
+    &__inputContainer input {
+      border: 1px solid black;
+      border-radius: 5px;
+      padding: 2px;
+      background-color: $colorSecundario;
+      font-family: $fuentePrimario;
+      color: $colorOscuro;
+      &::placeholder {
+        color: $colorGris;
+      }
+      &:focus {
+        border: none;
+        outline: 2px solid $colorAcento;
+        color: $colorFuerte;
+        background-color: $colorNeutral;
+      }
+    }
+    &__btnContainer {
+      &__btnSubmit {
+        background-color: $colorTerciario;
+        color: $colorBlanco;
+        border-radius: 5px;
+        transition: 300ms;
+        &:hover {
+          color: $colorAcento;
+          background-color: $colorOscuro;
+        }
+      }
+      &__btnBack {
+        // background-color: $colorTerciario;
+        color: $colorOscuro;
+        border: 1px solid $colorOscuro;
+        border-radius: 5px;
+        transition: 300ms;
+        &:hover {
+          color: $colorAcento;
+          background-color: $colorOscuro;
+        }
+      }
+    }
+    &__done {
+      background-color: #198754;
+      color: $colorNeutral;
+      border-radius: 5px;
+      transition: 300ms;
+    }
+  }
+}

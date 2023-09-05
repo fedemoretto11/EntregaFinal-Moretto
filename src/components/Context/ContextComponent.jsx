@@ -1,5 +1,7 @@
+import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { createContext, useEffect, useState } from "react";
 import { toast } from "sonner";
+import { db } from "../database/Data";
 
 export const contexto = createContext();
 const Provider = contexto.Provider
@@ -13,6 +15,7 @@ function ContextComponent(props) {
   const [productsInCart, setProductsInCart] = useState(JSON.parse(localStorage.getItem("cart")) || [])
   const [subtotal, setSubtotal] = useState(0)
   const [itemsInCart, setItemsInCart] = useState(0)
+  const [saleToken, setSaleToken] = useState("")
 
 
   const productsFilter = (newProduct) => {
@@ -60,6 +63,34 @@ function ContextComponent(props) {
       toast.error("Producto eliminado del carrito", {style: {background : "#dc3545",border: "solid 1px #022859",color: "#fff",fontSize: "13px"}})}
   }
 
+  const sellAndSave = (name, email) => {
+    const salesCollection = collection(db, "ventas")
+    const sale = {
+      user: {
+        name: name,
+        email: email
+      },
+      date: serverTimestamp(),
+      products: [...productsInCart]
+    }
+
+    const saleDone = addDoc(salesCollection, sale)
+    saleDone
+      .then((resultado) => {
+          console.log("Venta realizada correctamente")
+          console.log(resultado)
+          setSaleToken(resultado.id)
+          setProductsInCart([])
+          localStorage.setItem("cart", JSON.stringify([]));
+      })
+      .catch((error) => {
+          console.log(error)
+          console.log("Error de carga")
+      })
+  }
+
+
+
   useEffect(() => {
     let newSubtotal = 0
     productsInCart.forEach(product => {
@@ -89,7 +120,11 @@ function ContextComponent(props) {
     },
     onUpdateQuantity: (product, newQuantity) => {
       updateQuantity(product, newQuantity)
-    }
+    },
+    onSellAndSave: (name, email) => {
+      sellAndSave(name, email)
+    },
+    saleToken: saleToken
   }
 
 

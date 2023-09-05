@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom'
 import '../../styles/style.scss'
+import Checkout from './Checkout'
 
-function CartResume({itemsInCart, subtotal}) {
+function CartResume({itemsInCart, subtotal, setIsVisible}) {
 
 
 return (
@@ -15,7 +16,7 @@ return (
           <p>{`Productos (${itemsInCart})`}</p>
           <p>{`${subtotal.toLocaleString("es-AR",{style:"currency", currency:"ARS"})}`}</p>
         </div>
-        <button  className='cart-resume__btn-comprar px-4 py-2 w-[80%]'>Comprar</button>
+        <button onClick={setIsVisible} className='cart-resume__btn-comprar px-4 py-2 w-[80%]'>Comprar</button>
       </>
     : 
       <>
