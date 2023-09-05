@@ -4,6 +4,7 @@ import ItemListContainer from '../ItemList/ItemListContainer'
 import ItemDetailContainer from '../ItemDetail/ItemDetailContainer'
 import Error404 from '../Mensajes/Error404'
 import Cart from './Cart'
+import Loader from '../Widgets/Loader'
 
 
 function Main() {

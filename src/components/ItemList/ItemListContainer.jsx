@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import ItemList from './ItemList';
 import { useParams } from 'react-router-dom';
 import { db } from "../database/Data"
-import { getDocs , collection, addDoc } from "firebase/firestore"
+import { getDocs , collection, query, where } from "firebase/firestore"
 
 
 
@@ -15,17 +15,27 @@ function ItemListContainer() {
 
   useEffect(()=> {
     const collectionProducts = collection(db, "productos");
-    const listProducts = getDocs(collectionProducts);
+    let queryFilter;
+    if (params.id) {
+      queryFilter = query(
+        collectionProducts,
+        where("category", "==", params.id)
+        )
+    } else {
+      queryFilter = collectionProducts
+    }
+
+    const listProducts = getDocs(queryFilter);
+
     listProducts
-      .then((result) => {
-        const productsMapped = result.docs.map((product) => {
+      .then((res) => {
+        const productsMapped = res.docs.map((product) => {
           return {id: product.id, ...product.data()}
         })
-        if(params.id) {
-          setProducts(productsMapped.filter((product) => product.category === params.id))
-        } else {
-          setProducts(productsMapped)
-        }
+        setProducts(productsMapped)
+      })
+      .catch((err) => {
+        console.error("Error: ", err)
       })
 
 

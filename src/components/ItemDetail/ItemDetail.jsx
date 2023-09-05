@@ -6,14 +6,10 @@ import { useContext } from 'react'
 import ItemCounter from '../smallComponents/ItemCounter'
 import { contexto } from '../Context/ContextComponent'
 
-function ItemDetail({producto}) {
+function ItemDetail({ producto }) {
 
   const {  onAddProduct } = useContext(contexto);
   
-  
-  const funcionContexto = (producto) => {
-    onAddProduct(producto)
-  }
 
 
   
@@ -32,7 +28,7 @@ function ItemDetail({producto}) {
             <Rating
               rate={producto.rating}
             />
-            <p className='cardDetail__text__price text-start pt-2 lg:text-4xl'>{`$ ${producto.price.toLocaleString()}`}</p>
+            <p className='cardDetail__text__price text-start pt-2 lg:text-4xl'>{`${producto.price.toLocaleString("es-AR",{style:"currency", currency:"ARS"})}`}</p>
             <p className='cardDetail__text__description text-center p-4 text-justify'>{`${producto.description}`}</p>
           </div>
           
@@ -42,7 +38,7 @@ function ItemDetail({producto}) {
               <p className='text-gray-400 text-xs'>{`Stock: ${producto.stock}`}</p>
             </div>
             <div className='cardDetail__btns__container w-2/4 lg:w-full flex flex-col items-end justify-around lg:gap-4 '>
-              <button onClick={onAddProduct(producto)} className='cardDetail__btns__agregarCarrito text-sm rounded lg:w-5/6'>Agregar <span className='hidden lg:inline'>al Carrito</span></button>
+              <button onClick={() => onAddProduct(producto)} className='cardDetail__btns__agregarCarrito text-sm rounded lg:w-5/6'>Agregar <span className='hidden lg:inline'>al Carrito</span></button>
               <button className='cardDetail__btns__volver text-sm rounded p-1 lg:px-2'>
                 <Link 
                   to={`/category/${producto.category}`}

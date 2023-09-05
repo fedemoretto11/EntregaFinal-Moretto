@@ -1,4 +1,5 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
+import { toast } from "sonner";
 
 export const contexto = createContext();
 const Provider = contexto.Provider
@@ -8,34 +9,87 @@ function ContextComponent(props) {
 
   // const cartLocalStorage = localStorage.getItem("cart")
 
-  // const [counter, setCounter] = useState(0);
-  // const [subtotal, setSubtotal] = useState(0)
-  const [products, setProducts] = useState([])
-  const [items, setItems] = useState(0)
+  const [counter, setCounter] = useState(1);
+  const [productsInCart, setProductsInCart] = useState(JSON.parse(localStorage.getItem("cart")) || [])
+  const [subtotal, setSubtotal] = useState(0)
+  const [itemsInCart, setItemsInCart] = useState(0)
+
 
   const productsFilter = (newProduct) => {
-    return products.find(product => product.id == newProduct.id) ? true : false
+    return productsInCart.find(product => product.id == newProduct.id)
   }
 
-  const addProduct = (newProduct) => {
-    if(!productsFilter(newProduct)) {
-      setProducts([...products, newProduct])
-      setItems(items + 1)
-      console.log("Producto agregado")
-    } else {
-      console.log("El producto se encuentra en el carrito")
+  const updateQuantity = (product, newQuantity) => {
+    const productToUpdate = productsFilter(product)
+    if(productToUpdate) {
+      productToUpdate.quantity = newQuantity
+      const productsUpdated = [...productsInCart]
+      const productIndex = productsUpdated.findIndex((product) => product.id === productToUpdate.id);
+      if(productIndex != -1) {
+        productsUpdated[productIndex] = productToUpdate
+        setProductsInCart(productsUpdated)
+      }
+      localStorage.setItem("cart", JSON.stringify(productsUpdated))
     }
   }
+
+  const setQuantity = (q) => {
+    setCounter(q)
+  }
+  
+  const addProduct = (newProduct) => {
+    if(productsFilter(newProduct)) {
+      toast.error("Producto ya se encuenta en carrito",{style: {background : "#ffc107",border: "solid 1px #022859",color: "#022859",fontSize: "13px"}})
+    } else if (!productsFilter(newProduct) && newProduct.stock < counter) {
+      toast.error("Producto sin Stock disponible", {style: {background : "#dc3545",border: "solid 1px #022859",color: "#fff",fontSize: "13px"}})
+    } else {
+      setProductsInCart([...productsInCart, {...newProduct, quantity: counter}])
+      setQuantity(1);
+      localStorage.setItem("cart", JSON.stringify([...productsInCart, { ...newProduct, quantity: counter }]));
+      toast.success("Producto agregado correctamente", {style: {background : "#198754",border: "solid 1px #022859",color: "#fff",fontSize: "13px"}})
+
+    }
+  }
+
+  const deleteProduct = (productToDelete) => {
+    if(productsFilter(productToDelete)) {
+      setProductsInCart(productsInCart.filter((product) => {
+        return product.id != productToDelete.id
+      }))
+      localStorage.setItem("cart", JSON.stringify(productsInCart.filter((product) => product.id !== productToDelete.id)));
+      toast.error("Producto eliminado del carrito", {style: {background : "#dc3545",border: "solid 1px #022859",color: "#fff",fontSize: "13px"}})}
+  }
+
+  useEffect(() => {
+    let newSubtotal = 0
+    productsInCart.forEach(product => {
+      newSubtotal += product.price * product.quantity
+    });
+    setSubtotal(newSubtotal)
+    setItemsInCart(productsInCart.length)
+  },[productsInCart])
+
+
+
 
 
 
   const contextObject = {
-    products: products,
-    items : items,
-    subtotal: 0,
+    productsInCart: productsInCart,
+    itemsInCart : itemsInCart,
+    subtotal: subtotal,
+    onSetQuantity: (q) => {
+      setQuantity(q)
+    },
     onAddProduct: (newProduct) => {
       addProduct(newProduct)
     },
+    onDeleteProduct: (productToDelete) => {
+      deleteProduct(productToDelete)
+    },
+    onUpdateQuantity: (product, newQuantity) => {
+      updateQuantity(product, newQuantity)
+    }
   }
 
 
@@ -44,7 +98,7 @@ function ContextComponent(props) {
 
   return (
     <Provider 
-      value={ contextObject }
+      value={contextObject}
     >
       {props.children}
     </Provider>

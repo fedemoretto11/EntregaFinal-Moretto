@@ -1,21 +1,21 @@
 import { Link } from 'react-router-dom'
 import '../../styles/style.scss'
 
-function CartResume({totalItems, subtotal}) {
+function CartResume({itemsInCart, subtotal}) {
 
 
 return (
   <aside className="cart-resume w-[90%] mx-5 md:mx-10 lg:mx-0 lg:w-80 h-44 flex flex-col items-center justify-around">
-    <h3 className={`cart-resume__tittle text-xl w-[80%] ${totalItems ? '' : 'text-gray-400' }`}>Resumen de compra</h3>
+    <h3 className={`cart-resume__tittle text-xl w-[80%] ${itemsInCart ? '' : 'text-gray-400' }`}>Resumen de compra</h3>
     { 
-    totalItems
+    itemsInCart
     ? 
       <>
         <div className="cart-resume__data flex justify-between w-[80%]">
-          <p>{`Productos (${totalItems})`}</p>
-          <p>{`$ ${subtotal}`}</p>
+          <p>{`Productos (${itemsInCart})`}</p>
+          <p>{`${subtotal.toLocaleString("es-AR",{style:"currency", currency:"ARS"})}`}</p>
         </div>
-        <button className='cart-resume__btn-comprar px-4 py-2 w-[80%]'>Comprar</button>
+        <button  className='cart-resume__btn-comprar px-4 py-2 w-[80%]'>Comprar</button>
       </>
     : 
       <>

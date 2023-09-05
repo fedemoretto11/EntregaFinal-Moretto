@@ -4,6 +4,7 @@
 #main {
   background-color: $colorNeutral;
   min-height: calc(100vh - 14rem);
+  overflow-x: hidden;
 }
 
 .loaderContainer {

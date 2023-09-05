@@ -11,7 +11,7 @@ function Cart() {
     <section className="w-screen flex flex-col lg:flex-row gap-12 justify-center items-start pt-8">
       <CartList />
       <CartResume 
-        totalItems={items.items} 
+        itemsInCart={items.itemsInCart} 
         subtotal={items.subtotal}
       />
     </section>
