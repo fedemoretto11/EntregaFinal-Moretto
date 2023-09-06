@@ -28,10 +28,8 @@ function CartCounter({ product }) {
     }
     if (newQuantity == 1) {
       toast.error("La cantidad no puede ser 0",{style: {background : "#ffc107",border: "solid 1px #022859",color: "#022859",fontSize: "13px"}})
-  } 
+    } 
   }
-
-
 
   return (
     <div className="cart-counter h-8 w-2/12 flex justfy-center items-center px-2">

@@ -14,7 +14,8 @@
 
 .card {
   &:hover &__image{
-    transform: scale(1.1)
+    transform: scale(1.1);
+    // background-color: transparent;
   }
 }
 
@@ -153,6 +154,26 @@
       background-color: $colorPrimario;
     }
   }
+  &__btn-volver {
+    color: $colorOscuro;
+    border: 1.5px solid $colorOscuro;
+    border-radius: 5px;
+    transition: 300ms;
+    &:hover {
+      background-color: $colorOscuro;
+      color: $colorAcento;
+    }
+  }
+  &__btn-inicio{
+    color: $colorOscuro;
+    border: 1.5px solid $colorOscuro;
+    border-radius: 5px;
+    transition: 300ms;
+    &:hover {
+      background-color: $colorOscuro;
+      color: $colorAcento;
+    }
+  }
 }
 
 .cart-list {
@@ -162,8 +183,9 @@
 
 .cart-item-detail {
   border-bottom: 2px solid $colorNeutral;
-
 }
+
+
 
 .cart-counter {
   border: 1px solid $colorSecundario;
@@ -182,60 +204,62 @@ font-size: 1.25rem;
 
 
 .checkout {
-  background-color: $colorSecundario;
+  background-color: $colorBlanco;
   border-radius: 10px;
-  box-shadow: 0 0 1px 0px $colorOscuro;
-  transition: 200ms;
-  &__titulo {
+  &__title {
     font-family: $fuentePrimario;
     color: $colorOscuro;
   }
-  &__form {
-    &__inputContainer input {
-      border: 1px solid black;
-      border-radius: 5px;
-      padding: 2px;
-      background-color: $colorSecundario;
-      font-family: $fuentePrimario;
-      color: $colorOscuro;
-      &::placeholder {
-        color: $colorGris;
-      }
-      &:focus {
-        border: none;
-        outline: 2px solid $colorAcento;
-        color: $colorFuerte;
-        background-color: $colorNeutral;
-      }
+  &__input {
+    border-bottom: 2px solid $colorNeutral;
+    transition: 200ms;
+    &:focus {
+      outline: none;
+      border: none;
+      border-bottom: 2px solid $colorFuerte;
     }
-    &__btnContainer {
-      &__btnSubmit {
-        background-color: $colorTerciario;
-        color: $colorBlanco;
-        border-radius: 5px;
-        transition: 300ms;
-        &:hover {
-          color: $colorAcento;
-          background-color: $colorOscuro;
-        }
-      }
-      &__btnBack {
-        // background-color: $colorTerciario;
-        color: $colorOscuro;
-        border: 1px solid $colorOscuro;
-        border-radius: 5px;
-        transition: 300ms;
-        &:hover {
-          color: $colorAcento;
-          background-color: $colorOscuro;
-        }
-      }
-    }
-    &__done {
-      background-color: #198754;
-      color: $colorNeutral;
-      border-radius: 5px;
-      transition: 300ms;
-    }
+  }
+}
+
+.selling {
+  animation: saleButton ease-in 2000ms;
+}
+
+.sold {
+  background-color: rgb(25,135,84);
+}
+
+.sellingError{
+  background-color: #dc3545;
+}
+
+@keyframes sellingAnimation {
+  0% {
+    background: rgb(25,135,84);
+    background: linear-gradient(98deg, rgba(25,135,84,1) 0%, rgba(4,75,217,1) 0%);
+  }
+  10% {
+    background: rgb(25,135,84);
+    background: linear-gradient(98deg, rgba(25,135,84,1) 10%, rgba(4,75,217,1) 10%);
+  }
+  30% {
+    background: rgb(25,135,84);
+    background: linear-gradient(98deg, rgba(25,135,84,1) 30%, rgba(4,75,217,1) 30%);
+  }
+  40% {
+    background: rgb(25,135,84);
+    background: linear-gradient(98deg, rgba(25,135,84,1) 40%, rgba(4,75,217,1) 40%);
+  }
+  60% {
+    background: rgb(25,135,84);
+    background: linear-gradient(98deg, rgba(25,135,84,1) 60%, rgba(4,75,217,1) 60%);
+  }
+  80% {
+    background: rgb(25,135,84);
+    background: linear-gradient(98deg, rgba(25,135,84,1) 80%, rgba(4,75,217,1) 80%);
+  }
+  100% {
+    background: rgb(25,135,84);
+    background: linear-gradient(98deg, rgba(25,135,84,1) 100%, rgba(4,75,217,1) 100%);
   }
 }

@@ -5,10 +5,6 @@ function ItemCounter() {
 
   const { onSetQuantity } = useContext(contexto);
 
-
-
-
-
   return (
     <>
       <select onChange={(e) => onSetQuantity(e.target.value)} defaultValue={1} className='cardDetail__btns__cantidad__select w-12 text-center' name="cardDetail__btns__cantidad" id="cardDetail__btns__cantidad">

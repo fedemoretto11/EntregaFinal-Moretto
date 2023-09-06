@@ -20,7 +20,7 @@ function ItemListContainer() {
       queryFilter = query(
         collectionProducts,
         where("category", "==", params.id)
-        )
+      )
     } else {
       queryFilter = collectionProducts
     }

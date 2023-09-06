@@ -2,20 +2,19 @@ import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { createContext, useEffect, useState } from "react";
 import { toast } from "sonner";
 import { db } from "../database/Data";
+import Checkout from "../Cart/Checkout";
 
 export const contexto = createContext();
 const Provider = contexto.Provider
 
-
 function ContextComponent(props) {
-
-  // const cartLocalStorage = localStorage.getItem("cart")
 
   const [counter, setCounter] = useState(1);
   const [productsInCart, setProductsInCart] = useState(JSON.parse(localStorage.getItem("cart")) || [])
   const [subtotal, setSubtotal] = useState(0)
   const [itemsInCart, setItemsInCart] = useState(0)
   const [saleToken, setSaleToken] = useState("")
+
 
 
   const productsFilter = (newProduct) => {
@@ -37,7 +36,8 @@ function ContextComponent(props) {
   }
 
   const setQuantity = (q) => {
-    setCounter(q)
+    let number = parseFloat(q)
+    setCounter(number)
   }
   
   const addProduct = (newProduct) => {
@@ -65,45 +65,47 @@ function ContextComponent(props) {
 
   const sellAndSave = (name, email) => {
     const salesCollection = collection(db, "ventas")
+    const productsSold = productsInCart.map((product) => {
+      return {id:product.id, quantity:product.quantity, pricePerItem:product.price, subtotalProduct:product.quantity*product.price}
+    })
     const sale = {
       user: {
         name: name,
         email: email
       },
       date: serverTimestamp(),
-      products: [...productsInCart]
+      products: [...productsSold],
+      subtotal: subtotal,
+      itemsInCart: itemsInCart
     }
 
     const saleDone = addDoc(salesCollection, sale)
-    saleDone
-      .then((resultado) => {
-          console.log("Venta realizada correctamente")
-          console.log(resultado)
-          setSaleToken(resultado.id)
-          setProductsInCart([])
-          localStorage.setItem("cart", JSON.stringify([]));
-      })
-      .catch((error) => {
-          console.log(error)
-          console.log("Error de carga")
-      })
+
+    toast.promise(saleDone, {
+      loading: "Realizando compra, espere por favor...",
+      success: (resultado) => {
+        setSaleToken(resultado.id)
+        setProductsInCart([])
+        localStorage.setItem("cart", JSON.stringify([]));
+        return "Venta realizada"
+        },
+      error: (error) => {
+        console.log(error)
+        return "Error en venta"
+        }
+    })
   }
-
-
 
   useEffect(() => {
     let newSubtotal = 0
+    let newQuantity = 0
     productsInCart.forEach(product => {
       newSubtotal += product.price * product.quantity
+      newQuantity += product.quantity
     });
     setSubtotal(newSubtotal)
-    setItemsInCart(productsInCart.length)
+    setItemsInCart(newQuantity)
   },[productsInCart])
-
-
-
-
-
 
   const contextObject = {
     productsInCart: productsInCart,
@@ -124,12 +126,8 @@ function ContextComponent(props) {
     onSellAndSave: (name, email) => {
       sellAndSave(name, email)
     },
-    saleToken: saleToken
+    saleToken: saleToken,
   }
-
-
-
-
 
   return (
     <Provider 
