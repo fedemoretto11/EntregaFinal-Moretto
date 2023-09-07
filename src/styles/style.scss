@@ -1,4 +1,32 @@
-@import 'variables';
+@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Raleway&display=swap');
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css");
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css");
+
+// Colores
+
+$colorPrimario: #03258C;
+$colorSecundario: #B6C5F2;
+$colorTerciario: #044BD9;
+$colorOscuro: #022859;
+$colorFuerte: #138AF2;
+
+$colorAcento: #FF8000;
+
+$colorBlanco: #FFFFFF;
+$colorNegro: #000000;
+$colorGris: #555555;
+
+$colorNeutral: #EDEDEC;
+
+$colorPrimarioTransparente: #03258cd2 ;
+
+
+
+
+// Fuentes
+
+$fuentePrimario: 'Poppins', sans-serif;
+$fuenteSecundaria: 'Raleway', sans-serif;
 
 
 #main {
