@@ -23,9 +23,11 @@ function ItemDetailContainer() {
   },[paramProduct.id])
 
   return (
-    <ItemDetail
-      producto={product}
-    />
+    <section className='flex justify-center items-center pt-8 min-h-[40rem]'>
+      <ItemDetail
+        producto={product}
+      />
+    </section>
   )
 }
 

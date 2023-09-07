@@ -20,7 +20,7 @@ function CartResume({itemsInCart, subtotal, onConcludeSale, isSold}) {
             path.pathname == '/cart' ?
               <>
                 <Link to="/cart/checkout" className='cart-resume__btn-comprar px-4 py-2 w-[80%] text-center'>Comprar</Link>
-                <Link to="/" className='cart-resume__btn-inicio px-1 py-0.5 w-[55%] text-center'>Seguir comprando</Link>
+                <Link to="/" className='cart-resume__btn-inicio px-1 py-1 w-[55%] text-center'>Seguir comprando</Link>
               </>
             : 
               <>

@@ -5,14 +5,10 @@ import { useParams } from 'react-router-dom';
 import { db } from "../database/Data"
 import { getDocs , collection, query, where } from "firebase/firestore"
 
-
-
 function ItemListContainer() {
-
   const [products, setProducts] = useState([]);
   const params = useParams();
-
-
+  
   useEffect(()=> {
     const collectionProducts = collection(db, "productos");
     let queryFilter;
@@ -24,9 +20,7 @@ function ItemListContainer() {
     } else {
       queryFilter = collectionProducts
     }
-
     const listProducts = getDocs(queryFilter);
-
     listProducts
       .then((res) => {
         const productsMapped = res.docs.map((product) => {
@@ -37,11 +31,7 @@ function ItemListContainer() {
       .catch((err) => {
         console.error("Error: ", err)
       })
-
-
   },[params.id])
-  
-
 
   return (
     <>
@@ -51,5 +41,4 @@ function ItemListContainer() {
     </>
   )
 }
-
 export default ItemListContainer

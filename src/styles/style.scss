@@ -24,11 +24,9 @@
   font-family: $fuentePrimario;
   background-color: $colorBlanco;
   &__btns {
-      border: solid 2px $colorOscuro;
     &__agregarCarrito {
       background-color: $colorPrimario;
       color: $colorBlanco;
-      padding: 4px 8px;
       transition-duration: 200ms;
       &:hover {
         background-color: $colorOscuro;
