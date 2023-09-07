@@ -1,19 +1,13 @@
 import CartWidget from '../Widgets/CartWidget'
 import '../../styles/style.scss'
-import { useContext, useState } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 
 
 function NavBar() {
-  // Estados
   const [showMenu,setshowMenu] = useState(false);
 
-  
-  // Accion
-
-
-  // Vista
   return (
     <nav id="navBar__header" className='navBar gap-2 flex flex-col md:flex-row justify-center md:justify-between items-center px-6 md:px-6 lg:px-24 py-2 md:gap-3 lg:gap-6'>
       <div className={`flex justify-between items-center w-full ${showMenu ? 'mt-5 md:mt-0' : 'mt-0'} `}>

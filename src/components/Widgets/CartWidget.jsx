@@ -3,16 +3,7 @@ import { contexto } from "../Context/ContextComponent"
 
 function CartWidget() {
   const items = useContext(contexto)
-  // Estados
 
-
-  // Accion
-  // const toggleCart = () => {
-  //   console.log("Hola")
-  // }
-
-
-  // Vista
   return (
     <div className="flex cart-widget h-full  justify-center items-center">
       <i className="bi bi-cart text-3xl"></i>

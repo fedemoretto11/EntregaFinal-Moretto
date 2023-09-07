@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import CartList from "./CartList";
 import CartResume from "./CartResume";
 import { contexto } from "../Context/ContextComponent";

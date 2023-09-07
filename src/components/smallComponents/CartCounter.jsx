@@ -10,7 +10,6 @@ function CartCounter({ product }) {
   useEffect(() => {
     onUpdateQuantity(product, newQuantity)
   },[newQuantity])
-  
 
   const add = () => {
     if(newQuantity < product.stock) {

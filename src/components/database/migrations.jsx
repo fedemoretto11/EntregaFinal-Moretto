@@ -3,10 +3,15 @@ import { db } from "./Data"
 
 const [data, setData] = useState([])
 
+let meliCategory = MLA434786
+let kewWord = "pedal"
+let limit = 15
+let sortBy = "relevance"
 
 
-  function agregarDatos(){
-    fetch("https://api.mercadolibre.com/sites/MLA/search?category=MLA434786&q=pedal&limit=15&sort=relevance")
+
+  function importData(){
+    fetch(`https://api.mercadolibre.com/sites/MLA/search?category=${meliCategory}&q=${kewWord}&limit=${limit}&sort=${sortBy}`)
       .then(response => response.json())
       .then(data => {
         const productsForBd = data.results.map(producto => {
@@ -25,7 +30,7 @@ const [data, setData] = useState([])
       })
   }
 
-  function agregarDescripcion(){
+  function addDescription(){
     data.forEach(producto => {
       fetch(`https://api.mercadolibre.com/items/${producto.idMeli}/description`)
         .then(response => response.json())
@@ -37,7 +42,7 @@ const [data, setData] = useState([])
     console.log(data)
   }
 
-  function agregarDatosBase(){
+  function addToFirestore(){
     data.forEach((producto) => {
       const docAdded = addDoc(collection(db, "productos"), producto)
       console.log(producto)

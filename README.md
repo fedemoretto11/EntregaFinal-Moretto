@@ -20,11 +20,11 @@ Follow these step-by-step examples to set up your development environment:
 
 1. Clone the project
 
-        git clone https://github.com/fedemoretto11/PreEntrega2-Moretto
+        git clone https://github.com/fedemoretto11/EntregaFinal-Moretto
 
 2. Navigate to the project folder
 
-        cd SuperMusicChanguitoReact
+        cd EntregaFinal-Moretto
 
 3. Install dependencies
 
@@ -35,7 +35,7 @@ Follow these step-by-step examples to set up your development environment:
         npm start
 
 
-## Tech used
+## Technologies used
 
   - React JS
   - React Router
@@ -43,12 +43,22 @@ Follow these step-by-step examples to set up your development environment:
   - Sonner
   - Firebase
   - Tailwind CSS
+  - MercadoLibre API
 
 
 ## Author
 
   - **Federico Moretto**
     [fedemoretto11](https://github.com/fedemoretto11)
+
+
+## Additional info
+
+In the `database` directory, you will find a file named `migrations.jsx`. This file serves several purposes:
+
+  - `importData`: This function is responsible for importing product data from the Mercado Libre API.
+  - `addDescription`: This function is used to import the descriptions of each product. This is necessary because the API has a separate entry point for descriptions.
+  - `addToFirestore`: This function is responsible for sending the information to the Firestore database.
 
 
 ## License

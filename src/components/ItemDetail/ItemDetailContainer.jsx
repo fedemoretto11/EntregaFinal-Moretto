@@ -18,7 +18,7 @@ function ItemDetailContainer() {
         setProduct({id: result.id, ...result.data()})
       })
       .catch((err) => {
-        console.log("Error: ", err)
+        console.error("Error: ", err)
       })
   },[paramProduct.id])
 

@@ -4,13 +4,10 @@ import ItemListContainer from '../ItemList/ItemListContainer'
 import ItemDetailContainer from '../ItemDetail/ItemDetailContainer'
 import Error404 from '../Mensajes/Error404'
 import Cart from '../Cart/Cart'
-import Loader from '../Widgets/Loader'
 import Checkout from '../Cart/Checkout'
 
 
 function Main() {
-
-
   return (
     <main id='main'>
       <Routes>
